@@ -1,0 +1,67 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rejestracja - Portal Nieruchomościowy</title>
+    <link rel="stylesheet" href="~/css/Register.css" />
+</head>
+<body>
+    <div id="container">
+        <div id="form-wrapper">
+            <header>
+                <a href="@Url.Action("Index", "Home")" class="logo">Logo</a>
+            </header>
+
+            <div id="form-content">
+                <h2>Utwórz swoje konto</h2>
+
+                <div class="role-selection">
+                    <a href="@Url.Action("Register", "Home")" class="tab">Osoba fizyczna</a>
+                    <a href="@Url.Action("EstateAgencyRegister", "Home")" class="tab">Biuro nieruchomości</a>
+                    <a href="@Url.Action("DeveloperRegister", "Home")" class="tab active">Deweloper</a>
+                </div>
+
+                <div id="content-placeholder">
+                    <form action="/Account/DeveloperRegister" method="POST">
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            <div class="validation-summary-errors">
+                                <ul>
+                                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                    {
+                                        <li>@error.ErrorMessage</li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+
+                        <div class="form-section">
+                            <input type="text" placeholder="Nazwa firmy" name="CompanyName" required />
+                            <input type="text" placeholder="NIP" name="NIP" required />
+                            <input type="text" placeholder="Adres" name="Address" required />
+                            <input type="tel" placeholder="Numer telefonu" name="PhoneNumber" required />
+                            <input type="email" placeholder="E-mail" name="Email" required />
+                            <input type="password" placeholder="Hasło" name="PasswordHash" required />
+                            <input type="password" placeholder="Powtórz hasło" name="ConfirmPassword" required />
+
+                            <div class="input accept-terms">
+                                <label>
+                                    <input type="checkbox" name="AcceptTerms" value="true" required />
+                                    <span>Akceptuję regulamin i politykę prywatności</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-button">Zarejestruj się</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

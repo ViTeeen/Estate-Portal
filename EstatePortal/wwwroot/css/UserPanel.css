@@ -1,0 +1,284 @@
+﻿/* Stylowanie pola przy autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 1px solid #444; /* Obramowanie */
+    -webkit-text-fill-color: #fff; /* Kolor tekstu */
+    -webkit-box-shadow: 0 0 0px 1000px #333 inset; /* Tło dopasowane do innych pól */
+    transition: background-color 5000s ease-in-out 0s; /* Usunięcie migania */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*dokladniej jak dziala*/
+    list-style: none;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+}
+
+body {
+    background: #000000;
+    overflow-x: hidden;
+}
+
+#container {
+    position: absolute;
+    display: block;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+}
+
+header {
+    position: relative;
+    width: 90vw;
+    display: flex;
+    gap: 140px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 100px;
+    margin-bottom: 20px;
+}
+
+    header .logo {
+        font-size: 26px;
+        font-weight: 700;
+        color: #ff84ff;
+    }
+
+    header .navlist {
+        display: flex;
+        gap: 15px;
+    }
+
+    header ul li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        header ul li a {
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 10px;
+            transition: all .3s ease;
+        }
+
+            header ul li a:hover {
+                color: #ff84ff;
+            }
+.notification-dot {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.notification-button:hover + .notification-list,
+.notification-list:hover {
+    display: block;
+    color: #000000;
+    text-shadow: 0px 0px 3px #000;
+    transition: all ease-in-out .3s;
+}
+
+.notification-list {
+    display: none;
+    width: 250px;
+    text-shadow: 0px 0px 3px #000;
+    transition: all ease-in-out .3s;
+    position: absolute;
+    background-color: #2b2b2b;
+    padding: 10px;
+    right: 0;
+    z-index: 1000;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+#rightNavlist {
+    font-weight: 600;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    max-width: 400px;
+}
+
+#mojeKonto {
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+
+    #mojeKonto:hover a, #mojeKonto:hover i {
+        color: #ff84ff;
+        text-shadow: 0px 0px 3px #ff84ff;
+        transition: all ease-in-out .3s
+    }
+
+    #mojeKonto a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    #mojeKonto i {
+        margin-right: 5px;
+        font-size: 20px;
+        line-height: 1;
+    }
+
+#WstawOgloszenie {
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid #ff84ff;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+    width: auto;
+    padding: 20px 20px;
+    white-space: nowrap;
+    transition: all ease .5s;
+}
+
+    #WstawOgloszenie:hover {
+        background-color: #ff84ff;
+        color: #000;
+    }
+
+/* Wyśrodkowanie formularza */
+form {
+    background-color: #2a2a2a; /* Ciemne tło formularza */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto; /* Wyśrodkowanie formularza */
+    max-width: 600px; /* Maksymalna szerokość formularza */
+}
+
+/* Stylowanie nagłówków */
+h1, h2, h3 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Stylowanie pól formularza */
+input[type="password"],
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* Stylowanie przy autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    border: 1px solid #444;
+    -webkit-text-fill-color: #fff;
+    -webkit-box-shadow: 0 0 0px 1000px #333 inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Styl dla aktywnych pól */
+input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    background-color: #444;
+}
+
+
+/* Stylowanie przycisków */
+button, input[type="submit"] {
+    background-color: #8a8aff; /* Zielony kolor */
+    color: #fff; /* Jasny tekst */
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Efekt płynnej zmiany koloru */
+}
+
+    button:hover, input[type="submit"]:hover {
+        background-color: #ff84ff; /* Lekko ciemniejszy zielony po najechaniu */
+    }
+
+/* Kontenery dla sekcji formularza */
+.section {
+    margin-bottom: 20px;
+}
+
+/* Stylowanie etykiet */
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ddd;
+    font-weight: bold;
+}
+
+/* Stylowanie mapy */
+.map-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Dodatkowe ogólne tło strony */
+body {
+    background-color: #1e1e1e; /* Ciemne tło strony */
+    font-family: Arial, sans-serif;
+    color: #fff; /* Jasny kolor tekstu */
+    margin: 0;
+    padding: 0;
+}
+
+/* Stylizacja dla tabel w AdminPanel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+tr:hover {
+    background-color: #444;
+}
